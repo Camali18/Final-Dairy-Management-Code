@@ -1,0 +1,91 @@
+﻿@model List<DairyManagementSystem.Models.GenerateModel>
+
+@{
+Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewHistoryNew</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href="~/Main/Manager">Home</a></li>
+        <li><a class="active" href="~/Main/AddNewVendor">Add New Vendor</a></li>
+        <li><a href="~/Main/ViewHistory">View History</a></li>
+        <li><a href="~/Main/GenerateSlip">Generate Milk PaySlip</a></li>
+        <li><a href="~/Main/AddVendorPaySlip">Generate Monthly PaymentSlip(Gross Amount)</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <a href="~/Main/Manager"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <table border="1" align="center">
+        <tr>
+            <td>
+                Vendor Name
+            </td>
+            <td>
+                Milk Quantity
+            </td>
+            <td>
+                Fat Percentage
+            </td>
+            <td>
+                Timing
+            </td>
+            <td>
+                Date
+            </td>
+            <td>
+                Amount
+            </td>
+        </tr>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>
+                    @i.VendorName
+                </td>
+                <td>
+                    @i.quantity
+                </td>
+                <td>
+                    @i.fat
+                </td>
+                <td>
+                    @i.timing
+                </td>
+                <td>
+                    @i.date
+                </td>
+                <td>
+                    @i.Price
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                Total Milk Amount : @ViewBag.sum
+            </td>
+        </tr>
+        @*<tr>
+                <td>
+                    @ViewBag.sum
+                </td>
+            </tr>*@
+
+    </table>
+    <br /><br />
+    <div style=" text-align-last:center"><input type="submit" value="SUBMIT" /></div>
+
+</body>
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />

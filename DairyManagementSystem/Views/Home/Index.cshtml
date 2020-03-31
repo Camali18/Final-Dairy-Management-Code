@@ -1,0 +1,33 @@
+﻿@model DairyManagementSystem.Models.LoginModel
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+<style>
+
+    body {
+        background-image: url('../../Content/Milk Img.jpg');
+        background-size:cover;
+    }
+
+</style>
+
+    <body>
+        <h1 style=" text-align-last:center"> Dairy Management System...!!</h1>
+        <div id="login" style="align-content:center;">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            {
+                <br />
+                <span>Username: </span>@Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+                <br /><br />
+                <span>Password : </span>@Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+                <br /><br />
+                <input type="submit" value="LOGIN" />
+            }
+        </div>
+    </body>
+<script>@Html.Raw(@ViewBag.msg)</script>
+<link href="~/Content/login.css" rel="stylesheet" />

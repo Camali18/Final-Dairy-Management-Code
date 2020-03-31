@@ -1,0 +1,98 @@
+﻿@model IEnumerable<DataAccessLayer.FeedItem>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Feed Index</title>
+    <style>
+       
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size:cover;
+    }
+   
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    </style>
+</head>
+<body>
+    <h1>Feed Supplier</h1>
+    <ul>
+        <li><a class="active" href="~/Feed/FeedIndex">Home</a></li>
+        <li><a href="~/Feed/AddFeedItem">Add New Item</a></li>
+        <li><a href="~/Feed/AddFeedTrans">Sell Feed</a></li>
+        <li><a href="~/Feed/ViewFeedTransold">View Sales List</a></li>
+        <li><a href="~/Feed/AddSuppPayment">Generate Monthly PaymentSlip</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <p></p>
+    <div id="example2">
+
+        <table class="table" align="center" cellspacing="10px">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemStock)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemStock)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.FeedItemId }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.FeedItemId }) |*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.FeedItemId })
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+        @*<p>
+                @Html.ActionLink("Add New Item", "AddFeedItem")
+            </p>
+            <p>
+                @Html.ActionLink("Sell Feed", "AddFeedTrans")
+            </p>
+            <p>
+                @Html.ActionLink("Generate Monthly PaymentSlip", "AddSuppPayment")
+            </p>*@
+    </div>
+</body>
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />

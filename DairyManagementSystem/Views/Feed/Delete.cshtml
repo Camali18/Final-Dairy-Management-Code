@@ -1,0 +1,70 @@
+﻿@model DataAccessLayer.FeedItem
+
+@{
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>FeedItem</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemPrice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemPrice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemDescription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemDescription)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemStock)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ItemStock)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "FeedIndex")
+            </div>
+        }
+    </div>
+</body>
+</html>

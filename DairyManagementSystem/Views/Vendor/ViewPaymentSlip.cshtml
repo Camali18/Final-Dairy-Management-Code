@@ -1,0 +1,86 @@
+﻿@model List<DairyManagementSystem.Models.VendorPayModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewPaymentSlip</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <h1>Vendor</h1>
+    <ul>
+        <li><a href="~/Vendor/VendorView">Home</a></li>
+        <li><a class="active" href="~/Vendor/ViewFeedItem">View FeedItem List</a></li>
+        <li><a href="~/Vendor/ViewPaymentSlip">View PaymentSlip</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <p></p>
+    <a href="~/Vendor/VendorView"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <p></p>
+    <div id="example2">
+        <form method="post">
+            <table align="center">
+                <caption style="font-size:x-large">Montly Payment Slip..!</caption>
+
+                <tr>
+                    <td>
+                        Vendor Name
+                    </td>
+                    <td>
+                        Month
+                    </td>
+                    <td>
+                        Year
+                    </td>
+                    <td>
+                        Milk Amount
+                    </td>
+                    <td>
+                        Feed Amount
+                    </td>
+                    <td>
+                        Gross Amount
+                    </td>
+                </tr>
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>
+                            @i.VendorName
+                        </td>
+                        <td>
+                            @i.month
+                        </td>
+                        <td>
+                            @i.year
+                        </td>
+                        <td>
+                            @i.MilkAmount
+                        </td>
+                        <td>
+                            @i.FeedAmount
+                        </td>
+                        <td>
+                            @i.GrossAmount
+                        </td>
+                    </tr>
+                }
+            </table>
+        </form>
+
+</body>
+
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+

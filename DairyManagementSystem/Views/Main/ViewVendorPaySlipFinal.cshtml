@@ -1,0 +1,86 @@
+﻿@model List<DairyManagementSystem.Models.VendorPayModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewVendorPaySlipFinal</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href="~/Main/Manager">Home</a></li>
+        <li><a class="active" href="~/Main/AddNewVendor">Add New Vendor</a></li>
+        <li><a href="~/Main/ViewHistory">View History</a></li>
+        <li><a href="~/Main/GenerateSlip">Generate Milk PaySlip</a></li>
+        <li><a href="~/Main/AddVendorPaySlip">Generate Monthly PaymentSlip(Gross Amount)</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <a href="~/Main/Manager"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <form method="post">
+        <table border="1" align="center">
+            <tr>
+                <td>
+                    Vendor Name
+                </td>
+                <td>
+                    Month
+                </td>
+                <td>
+                    Year
+                </td>
+                <td>
+                    Milk Amount
+                </td>
+                <td>
+                    Feed Amount
+                </td>
+                <td>
+                    Gross Amount
+                </td>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        @i.VendorName
+                    </td>
+                    <td>
+                        @i.month
+                    </td>
+                    <td>
+                        @i.year
+                    </td>
+                    <td>
+                        @i.MilkAmount
+                    </td>
+                    <td>
+                        @i.FeedAmount
+                    </td>
+                    <td>
+                        @i.GrossAmount
+                    </td>
+                </tr>
+            }
+        </table>
+        <br />
+       <div style=" text-align-last:center"><input type="submit" value="Pay Amount" /></div> 
+        <br />
+        <br />
+        <h2>@ViewBag.msg</h2>
+    </form>
+
+</body>
+
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />

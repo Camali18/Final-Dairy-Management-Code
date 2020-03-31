@@ -1,0 +1,54 @@
+﻿@model DairyManagementSystem.Models.GenerateModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GenerateSlip</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href="~/Main/Manager">Home</a></li>
+        <li><a href="~/Main/AddNewVendor">Add New Vendor</a></li>
+        <li><a href="~/Main/ViewHistory">View History</a></li>
+        <li><a class="active" href="~/Main/GenerateSlip">Generate Milk PaySlip</a></li>
+        <li><a href="~/Main/AddVendorPaySlip">Generate Monthly PaymentSlip(Gross Amount)</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <p></p>
+    <a href="~/Main/Manager"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <p></p>
+    <div id="example2">
+    @using (Html.BeginForm("GenerateSlip", "Main", FormMethod.Post))
+    {
+        <table align="center" cellspacing="10px">
+            <tr>
+                <td>
+                    Select Vendor Name:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DropDownList("UserId", (List<SelectListItem>)ViewBag.vend)
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="SUBMIT" /></td></tr>
+        </table>
+
+
+    }
+    </div>
+</body>
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />

@@ -1,0 +1,79 @@
+﻿@model List<DairyManagementSystem.Models.AddFeedTransModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewFeedItem</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+
+<body>
+    <h1>Vendor</h1>
+    <ul>
+        <li><a href="~/Vendor/VendorView">Home</a></li>
+        <li><a class="active" href="~/Vendor/ViewFeedItem">View FeedItem List</a></li>
+        <li><a href="~/Vendor/ViewPaymentSlip">View PaymentSlip</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <p></p>
+    <a href="~/Vendor/VendorView"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <p></p>
+    <div id="example2">
+        <table align="center" cellspacing="10px">
+            <caption style="font-size:x-large">View Feed Item..!</caption>
+
+            <tr>
+                <td>
+                    Vendor Name
+                </td>
+                <td>
+                    Item Name
+                </td>
+                <td>
+                    Item Quantity
+                </td>
+                <td>
+                    Item Amount
+                </td>
+                <td>
+                    Date
+                </td>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        @i.VendorName
+                    </td>
+                    <td>
+                        @i.ItemName
+                    </td>
+                    <td>
+                        @i.Quantity
+                    </td>
+                    <td>
+                        @i.Amount
+                    </td>
+                    <td>
+                        @i.Date
+                    </td>
+                </tr>
+            }
+        </table>
+</div>
+
+</body>
+
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />

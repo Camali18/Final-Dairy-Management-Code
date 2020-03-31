@@ -1,0 +1,63 @@
+﻿@model DairyManagementSystem.Models.AddVendorModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewVendor</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size:cover;
+    }
+</style>
+<body>
+    <ul>
+        <li><a href="~/Main/Manager">Home</a></li>
+        <li><a class="active" href="~/Main/AddNewVendor">Add New Vendor</a></li>
+        <li><a href="~/Main/ViewHistory">View History</a></li>
+        <li><a href="~/Main/GenerateSlip">Generate Milk PaySlip</a></li>
+        <li><a href="~/Main/AddVendorPaySlip">Generate Monthly PaymentSlip(Gross Amount)</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <a href="~/Main/Manager"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <form method="post">
+        <div id="example2">
+            <h2 style=" text-align-last:center">Add New Vendor</h2>
+            <br />
+            <table cellspacing="10px" align="center">
+                <tr>
+                    <td>
+                        <span>Username: </span>@Html.TextBoxFor(m => m.username)
+                        @Html.ValidationMessageFor(m=>m.username)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Password: </span>@Html.TextBoxFor(m => m.password)
+                        @Html.ValidationMessageFor(m => m.password)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Address : </span>&nbsp;&nbsp;@Html.TextBoxFor(m => m.address)
+                        @Html.ValidationMessageFor(m => m.address)
+                    </td>
+                </tr>
+                <td>
+                    <input type="submit" value="SUBMIT" />
+                </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    
+</body>
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />

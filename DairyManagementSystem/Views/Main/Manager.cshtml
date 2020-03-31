@@ -1,0 +1,103 @@
+﻿@*@model List<SelectListItem>*@
+@model List<DairyManagementSystem.Models.ManagerModel>
+@*@model DairyManagementSystem.Models.ManagerModel*@
+
+@{
+    ViewBag.Title = "Manager";
+    Layout = null;
+}
+
+
+<h1>Dairy Management </h1>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Manager</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <ul>
+        <li><a class="active" href="~/Main/Manager">Home</a></li>
+        <li><a href="~/Main/AddNewVendor">Add New Vendor</a></li>
+        <li><a href="~/Main/ViewHistory">View History</a></li>
+        <li><a href="~/Main/GenerateSlip">Generate Milk PaySlip</a></li>
+        <li><a href="~/Main/AddVendorPaySlip">Generate Monthly PaymentSlip(Gross Amount)</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <p></p>
+    <a href="~/Main/ViewHistory" ><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+   &nbsp;
+    <form method="post">
+        <div id="example2">
+
+            <h1 style=" text-align-last:center"> Enter the Milk Details </h1><br />
+            <table border:"2" align="center" cellspacing="10px">
+                <tr>
+                    <td>
+                        <h5>Vendor Name&nbsp;</h5>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <h5>Milk Quantity</h5>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <h5>Fat Level</h5>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <h5>Timings</h5>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <h5>Date</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownList("UserId", (List<SelectListItem>)ViewBag.vend)
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        @Html.TextBox("Quantity")
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        @Html.DropDownList("fat", (List<SelectListItem>)ViewBag.fat)
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        @Html.DropDownList("timing")
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        @Html.TextBox("date", new { type = "Date" })
+                    </td>
+
+                </table>
+            <br />
+            <div style=" text-align-last:center"><input type="submit" value="SUBMIT" class="btn btn-default" /></div>
+        </div>
+    </form>
+    @ViewBag.result
+</body>
+
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+
+

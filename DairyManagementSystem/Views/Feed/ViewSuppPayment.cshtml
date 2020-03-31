@@ -1,0 +1,71 @@
+﻿@model List<DairyManagementSystem.Models.SupplierPayModel>
+@*@model DairyManagementSystem.Models.SupplierPayModel*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewSuppPayment</title>
+</head>
+<style>
+    body {
+        background-image: url('../../Content/Payment3 Img.jpg');
+        background-size: cover;
+    }
+</style>
+<body>
+    <h1>Feed Supplier</h1>
+    <ul>
+        <li><a href="~/Feed/FeedIndex">Home</a></li>
+        <li><a href="~/Feed/AddFeedItem">Add New Item</a></li>
+        <li><a href="~/Feed/AddFeedTrans">Sell Feed</a></li>
+        <li><a href="~/Feed/ViewFeedTransold">View Sales List</a></li>
+        <li><a class="active" href="~/Feed/AddSuppPayment">Generate Monthly PaymentSlip</a></li>
+        <li style="float:right"><a href="~/Home/Index">Log out</a></li>
+    </ul>
+    <p></p>
+    <a href="~/Feed/FeedIndex"><input type="image" src="~/Content/back.png" width="48" height="48" /></a>
+    <p></p>
+    <div id="example2">
+        <table border="1" align="center" cellspacing="10px">
+            <tr>
+                <td>
+                    Vendor Name
+                </td>
+                <td>
+                    Month
+                </td>
+                <td>
+                    Year
+                </td>
+                <td>
+                    Amount
+                </td>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>
+                        @i.VendorName
+                    </td>
+                    <td>
+                        @i.month
+                    </td>
+                    <td>
+                        @i.year
+                    </td>
+                    <td>
+                        @i.Amount
+                    </td>
+                </tr>
+            }
+        </table>
+        </div>
+</body>
+</html>
+<link href="~/Content/StyleSheet1.css" rel="stylesheet" />
